@@ -131,22 +131,22 @@ Or leave it empty and use the [link text itself].
 
 ```markdown
 Inline-style:
-![alt text](/assets/img/icon48.png "Logo Title Text 1")
+![alt text](/assets/img/images/icon48.png "Logo Title Text 1")
 
 Reference-style:
 ![alt text][logo]
 
-[logo]: /assets/img/icon48.png "Logo Title Text 2"
+[logo]: /assets/img/images/icon48.png "Logo Title Text 2"
 ```
 ... becomes ...
 
 > Here's our logo (hover to see the title text):  
 > Inline-style:  
-> ![alt text](/assets/img/icon48.png "Logo Title Text 1")  
+> ![alt text](/assets/img/images/icon48.png "Logo Title Text 1")  
 > Reference-style:  
 > ![alt text][logo]  
 >
-> [logo]: /assets/img/icon48.png "Logo Title Text 2"  
+> [logo]: /assets/img/images/icon48.png "Logo Title Text 2"  
 
 <a name="tables"/>
 
