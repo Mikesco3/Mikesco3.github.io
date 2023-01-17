@@ -1,5 +1,5 @@
 ---
-title: Aomei Backupper Tutorial 
+title: Auto refesh browser in linux 
 author:
 name: mikesco3
 link: https://github.com/Mikesco3
@@ -28,7 +28,8 @@ In our example we are running the Brave Browser on Linux Mint 21.1 cinnamon
 2. I Wrote this script so that it would cycle whether it runs Firefox, chrome or brave and send F5 to refresh every 2 minutes. <br>
   We called the script   `refreshBrowser.sh` and placed in a folder we created on the users home called `/bin/` <br>
   here is the scrpt: <br>
-```bash
+  
+``` bash
 #!/usr/bin/bash
 
 browsers=("chrome" "brave" "firefox")
