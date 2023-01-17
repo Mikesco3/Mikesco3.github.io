@@ -22,13 +22,14 @@ In our example we are running the Brave Browser on Linux Mint 21.1 cinnamon
 # Setup
 ## Install xdotool
 1. I installed a tool called xdotool that is supposed to allow to send keystrokes to a window: <br>
-  ` apt install --yes xdotool`
-
+``` bash
+apt install --yes xdotool
+```
 ## Write a script 
 2. I Wrote this script so that it would cycle whether it runs Firefox, chrome or brave and send F5 to refresh every 2 minutes. <br>
   We called the script   `refreshBrowser.sh` and placed in a folder we created on the users home called `/bin/` <br>
   here is the scrpt: <br>
-  
+
 ``` bash
 #!/usr/bin/bash
 
