@@ -19,7 +19,7 @@ We are going to focus on Aomei Backupper Free, as it is fairly generous in it's 
 
 # Setup
 ## Download Aomei Backupper Standard (free)
-Download and install [Aomei Backupper free](https://www.aomeitech.com/ss/download/adb/AOMEIBackupperStd.exe) <br> 
+Download and install [Aomei Backupper free](https://www2.aomeisoftware.com/download/adb/AOMEIBackupperStd.exe) <br> 
 from: https://www.aomeitech.com/ab/standard.html <br>
 ## Skip the offer
 *Bypass and skip all of the upgrade offers.*
