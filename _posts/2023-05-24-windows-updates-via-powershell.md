@@ -17,11 +17,12 @@ There are times where it is more convenient to run windows updates via PowerShel
  (right-click on the start menu and select "Windows PowerShell (Admin)") <br>
  or search for "PowerShell", then right-click on it and select "Run as Administrator" <br>
 
-2. Set the execution policy to Remotely Singed
+2. Set the execution policy to Remotely Signed <br>
  (paste the following command and press __Y__ or __A__ to agree and press __ENTER__) <br>
  ``` powershell
  Set-ExecutionPolicy RemoteSigned
  ```
+
 # Getting and Intalling Updates
 3. Install the PSWindowsUpdate module 
 ``` powershell
@@ -31,7 +32,7 @@ Install-Module PSWindowsUpdate
 ``` powershell
 Get-WindowsUpdate
 ```
-4. Finally to Install the pending Updates
+5. Finally to Install the pending Updates
 ``` powershell
 Install-WindowsUpdate
 ```
