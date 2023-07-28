@@ -31,14 +31,14 @@ Especially if you're unfamiliar with the information you're handling...  <br>
 ___
 # Begin:
 
-1. Check Power: (in all of it's variants) <br>
+1. **Check Power:** (in all of it's variants) <br>
 (is the thing plugged in?, battery voltage, etc.) <br>
 Reboot... <br>
 
-2. Check Connections 
+2. **Check Connections:**  <br>
  (Cables plugged in properly?, all the way in?, Cards seated properly?, corroded connectors?)
 
-3. Test Hardware:
+3. **Test Hardware:**  <br>
   **3.1.** Unplug non-essential cards and peripherals. <br>
   _(You might want to take some notes and/or pictures if the connections are complex)_ <br>
   **3.2.** Test RAM (memtest) <br>
@@ -46,9 +46,10 @@ Reboot... <br>
    Last chance to **GRAB A BACKUP!**  <br>
 _Or you can also clone the data onto another drive and work on a copy of the original._  <br>
 _**(Beyond this point, there be dragons!)**_  <br> 
-4. Once that checks out move to software:  <br>
-  **4.1.** Start in safe-mode <br>
-  **4.2.** Virus check <br>
+Once the hardware checks out... <br>
+4. **Check Software:**  <br>
+  **4.1.** Start in safe-mode, <br>
+  **4.2.** Virus check, <br>
   **4.3.** Updates, <br>
   **4.4.** Check Logs. <br>
 
