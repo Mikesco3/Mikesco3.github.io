@@ -31,8 +31,9 @@ Especially if you're unfamiliar with the information you're handling...  <br>
 ___
 # Begin:
 
-1. Check Power: (in all of it's variants)
-(is the thing plugged in?, reboot, battery voltage, etc.)
+1. Check Power: (in all of it's variants) <br>
+(is the thing plugged in?, battery voltage, etc.) <br>
+Reboot... <br>
 
 2. Check Connections 
  (Cables plugged in properly?, all the way in?, Cards seated properly?, corroded connectors?)
@@ -43,7 +44,7 @@ ___
   **3.2.** Test RAM (memtest) <br>
   **3.3.** check hard drive (surface scan) <br>
    Last chance to **GRAB A BACKUP!**  <br>
-Or you can also clone the data onto another drive and do the work on the copy of the original.  <br>
+_Or you can also clone the data onto another drive and work on a copy of the original._  <br>
 _**(Beyond this point, there be dragons!)**_  <br> 
 4. Once that checks out move to software:  <br>
   **4.1.** Start in safe-mode <br>
