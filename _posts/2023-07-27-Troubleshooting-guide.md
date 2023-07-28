@@ -15,11 +15,11 @@ Obviously this is a very general simplified version, and once with enough experi
 You don't necessarily need to follow the order or the whole guide, usually you'll get hints that will lead to the solution along the way. <br>
 
 ___
-# Before Anything:
-## If possible: **CREATE A BACKUP FIRST**,
+# Before Anything, **CREATE A BACKUP FIRST!** _(if possible)..._
+
 1. **Try avoid doing something you cannot undo...** <br>
-Take notes (connections, settings, passwords), 
-Take Pictures... 
+Take Notes (connections, settings, passwords), 
+Pictures, Snapshots... 
 
 2. **Consider all Data Essential**... <br> 
 Especially if you're unfamiliar with the information you're handling...  <br>
