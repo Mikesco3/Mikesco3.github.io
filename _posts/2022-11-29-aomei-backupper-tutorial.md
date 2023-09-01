@@ -47,7 +47,7 @@ In order to make a first backup, make sure you have access to another store driv
 7. Make a note of the drive letter for the Backup destination,
   *in our example it is drive **F:***
 8. Click **Add**
-   ![Select Source](/assets/img/images/Pasted_Image_20221128130117.png)
+![Select Backup Source](/assets/img/images/Pasted_Image_20221128130117.png) 
 ## Set the Destination and Start       
 9. Select the Destination Path
    >[! Info] In most cases the drive letter will be correct.
