@@ -4,6 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
+<<<<<<< HEAD
 ## Mikesco3 - Michael Schmitz
 I am a self-taught IT business owner and entrepreneur. I try to focus on the human aspect and business side of IT solutions. My expertise lies in bridging the gap between people's goals and technology, providing a range of services from strategy consulting to seamless deployment. I primarily serve small businesses in the Cedar Rapids, IA area. <br>
  <br> 
@@ -26,3 +27,7 @@ My approach is to try to first understand the human element and then the busines
 
 > Tip test Tip
 {: .prompt-info}
+=======
+> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
+{: .prompt-tip }
+>>>>>>> v7.3.1

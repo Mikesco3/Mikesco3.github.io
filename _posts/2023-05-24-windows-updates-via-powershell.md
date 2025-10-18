@@ -36,5 +36,12 @@ Get-WindowsUpdate
 ``` powershell
 Install-WindowsUpdate
 ```
+
+## Troubleshooting
+This powershell command has helped me fix windows updates:
+``` powershell
+reset-wucomponents
+```
+
 Here you can press __A__ to agree to all or __Y__ or __ENTER__ to agree to the individual ones <br>
    ![PowerShell](/assets/img/images/Pasted_Image_20240524182930.png)
