@@ -28,11 +28,7 @@ jobs:
 
     steps:
       - name: Checkout
-<<<<<<< HEAD
-        uses: actions/checkout@v3
-=======
         uses: actions/checkout@v4
->>>>>>> v7.3.1
         with:
           fetch-depth: 0
           # submodules: true
@@ -41,20 +37,12 @@ jobs:
 
       - name: Setup Pages
         id: pages
-<<<<<<< HEAD
-        uses: actions/configure-pages@v1
-=======
         uses: actions/configure-pages@v4
->>>>>>> v7.3.1
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-<<<<<<< HEAD
-          ruby-version: '3.1' # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
-=======
           ruby-version: 3.3
->>>>>>> v7.3.1
           bundler-cache: true
 
       - name: Build site
@@ -64,19 +52,12 @@ jobs:
 
       - name: Test site
         run: |
-<<<<<<< HEAD
-          bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v1
-=======
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
->>>>>>> v7.3.1
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
@@ -89,8 +70,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
-        uses: actions/deploy-pages@v1
-=======
         uses: actions/deploy-pages@v4
->>>>>>> v7.3.1
