@@ -11,9 +11,9 @@ tags: [guide, tutorial, linux, proxmox, virtualization, zfs]
 
 # Why, What for...
 ## Introduction
-Proxmox VE is a popular open-source hypervisor platform that allows users to create and manage virtual machines (VMs) with ease. When setting up a Proxmox environment, it's essential to consider data protection and high availability to ensure business continuity in case of hardware failures or other disasters.  <br>
+[Proxmox VE](https://www.proxmox.com/en/proxmox-virtual-environment) is a popular open-source hypervisor platform that allows users to create and manage virtual machines (VMs) with ease. When setting up a Proxmox environment, it's essential to consider data protection and high availability to ensure business continuity in case of hardware failures or other disasters.  <br>
 
-In this article, we'll walk through my current Proxmox setup using a mirrored storage configuration, NVMe drives for VM storage, and automated snapshotting and synchronization using ZFS, `sanoid`, and `syncoid`. <br>
+In this article, we'll walk through my current Proxmox setup using [ZFS](https://openzfs.org/wiki/Main_Page) and [sanoid and syncoid](https://github.com/jimsalterjrs/sanoid) for automated snapshotting and synchronization. <br>
 
 ## Hardware Layout and Design Considerations
 The example setup used in this article consists of: 
@@ -22,7 +22,9 @@ which provides a robust and resilient storage solution for the Proxmox operating
 - In Addition, a **2TB Samsung Pro NVMe drive**, <br>
  used to store production VMs, taking advantage of the faster storage for improved performance. 
  
- The logic behind this setup is to ensure that the Proxmox operating system is protected against disk failures, while also providing fast storage for production VMs. By separating the operating system and VM storage, we can ensure that a failure of the NVMe drive won't affect the Proxmox operating system, and vice versa. Furthermore, by synchronizing the VMs to a shadow VM on the mirrored storage, we can ensure that in the event of a disaster, we can quickly recover our production VMs.
+ The logic behind this setup is to ensure that the Proxmox operating system is protected against disk failures, while also having enough room for backups and Shadow Virtual Machines. We run the production Virtual Machines run on the NVMe drive to take advantage of it's speed. However in the background we can periodically synchronize to the larger more resilient pair of hard drives.
+ 
+ also providing fast storage for production VMs. By separating the operating system and VM storage, we can ensure that a failure of the NVMe drive won't affect the Proxmox operating system, and vice versa. Furthermore, by synchronizing the VMs to a shadow VM on the mirrored storage, we can ensure that in the event of a disaster, we can quickly recover our production VMs.
 
 
 |  NAME   |   | MODEL                   |   |  Configuration    | 
@@ -30,6 +32,7 @@ which provides a robust and resilient storage solution for the Proxmox operating
 |   sda   |   | WDC WD161KRYZ-01AGBB0   |   |  `rpool` mirror-0 | 
 |   sdb   |   | WDC WD161KRYZ-01AGBB0   |   |  `rpool` mirror-0 | 
 | nvme0n1 |   | Samsung SSD 990 PRO 2TB |   |  `fast200 `       | 
+
 ___
 
 ## Install Proxmox 
@@ -37,7 +40,7 @@ ___
 
 1. Install Proxmox Using the following configuration  
     2x 14TB WD Gold drives in a ZFS Raid 1 (mirror) `rpool` where proxmox is installed
-    
+
 ```
 root@pve0:/dev/disk/by-id# zpool status
 
@@ -49,7 +52,8 @@ config:
             ata-WDC_WD161KRYZ-01AGBB0_XXXX-part3  
             ata-WDC_WD161KRYZ-01AGBB0_XXXX-part3  
 
-```
+```    
+
 ___
 ## Index
 1. Prepare the Hardware
@@ -80,7 +84,22 @@ ____
 ____
 
 ## 2. Installed proxmox with defaults
- Installed Proxmox with mostly defaults. However I installed proxmox onto a ZFS mirror of the 2 16 Terabyte Western Digital Gold Drives.
+ Installed Proxmox with mostly defaults. However when selecting the drives, I chose ZFS and created a RAID 1 with the 2x 16TB WD Gold
+ 
+```
+root@pve0:/dev/disk/by-id# zpool status
+
+  pool: rpool
+config:
+        NAME                                          
+        rpool                                         
+          mirror-0                                    
+            ata-WDC_WD161KRYZ-01AGBB0_XXXX-part3  
+            ata-WDC_WD161KRYZ-01AGBB0_XXXX-part3  
+
+```
+
+  I installed proxmox onto a ZFS mirror of the 2 16 Terabyte Western Digital Gold Drives.
  _I'm using the mirrored drives for mr_
 
 
