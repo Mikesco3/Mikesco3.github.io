@@ -1,0 +1,48 @@
+
+  - Section**   - What It Should Achieve**   - Notes / Style** 
+
+  - Introduction — Why, What For
+    -- Explain why Proxmox, what problems it solves (cost, ransomware resilience, flexibility)
+    --- Tone: conversational, inspirational 
+
+  - Hardware Layout and Design
+    -- Show your reasoning behind mirrored HDD + NVMe setup, include diagram
+    --- Add image reference and real hardware table 
+
+  - Prepare the Hardware
+    -- Practical checklist (battery, BIOS, memtest, dust)
+    --- Keep concise, bullet list 
+
+  - Install Proxmox
+    -- Step-by-step, command blocks, no fluff
+    --- Pull from `main-2025.md` 
+  - Configure ZFS Storage
+    -- Explain datasets conceptually first, then commands
+    --- Use blockquotes for reasoning 
+
+  - Create fast200 Pool
+    -- Highlight over-provisioning and ashift reasoning
+    --- Mention ZSTD 
+
+  - User Management and Samba
+    -- Cover Linux user creation, Samba shares, and Proxmox permissions
+    --- Practical commands, minimal narrative 
+  - Additional Tools (Sanoid, Drive Status)
+    -- Explain installation and why they matter
+    --- Add links and short benefits summary 
+
+  - Troubleshooting
+    -- Include field-tested fixes (keyboard, network, boot params)
+    --- Quick, formatted code + notes 
+
+  - Tips and Maintenance
+    -- Encourage preventive maintenance and good habits
+    --- Friendly, mentor-like tone 
+
+  - Optional Add-ons
+    -- Cover ZeroTier, Tailscale, NetData
+    --- Short blurbs, optional interest 
+
+  - Feedback and Collaboration
+    -- Invite other admins to share tweaks and insights
+    --- Natural closing paragraph 

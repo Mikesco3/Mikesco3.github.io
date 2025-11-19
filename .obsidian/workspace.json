@@ -1,0 +1,148 @@
+{
+  "main": {
+    "id": "e410855619aa7177",
+    "type": "split",
+    "children": [
+      {
+        "id": "e905f12b8c00252e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95b0cf870159c7a4",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d0140a65e429e61f",
+    "type": "split",
+    "children": [
+      {
+        "id": "1915c0d8d2263649",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f7fdbb0a899d823e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ff03ac14d9c3b0c2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c2dbc00aa7ccdd0a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a73a2a9824da94c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d6bb404814ac843",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4468d701d7803880",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "05580413c9d6fbc8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f38f767af8b44fcb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "4ff0383643cdd970",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "95b0cf870159c7a4",
+  "lastOpenFiles": [
+    "_posts/2022-11-29-aomei-backupper-tutorial.md",
+    "_site/assets/img/images/Pasted_Image_202309011053.png.md",
+    "_site/assets/img/images/Pasted_Image_202309011053.png",
+    "assets/img/images/Pasted_Image_202309011053.png.md",
+    "_posts/2023-08-21-Converting-windows-from-mbr-to-gpt-without-data-loss.md"
+  ]
+}

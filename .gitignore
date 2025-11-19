@@ -1,26 +1,5 @@
-<<<<<<< HEAD
-# hidden files
-.*
-!.git*
-!.editorconfig
-!.nojekyll
-!.husky
-!.commitlintrc.json
-!.versionrc.json
-!.stylelintrc.json
-
-# bundler cache
-_site
-vendor
-
-# rubygem
-*.gem
-
-# npm dependencies
-node_modules
-package-lock.json
-=======
 # Bundler cache
+test.sh
 .bundle
 vendor
 Gemfile.lock
@@ -47,4 +26,5 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
->>>>>>> v7.3.1
+
+_notes_mikesco3-notes
