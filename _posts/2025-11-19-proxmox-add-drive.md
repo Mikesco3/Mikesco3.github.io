@@ -220,7 +220,9 @@ Check new size:
 zpool list
 ```
 
-Optionally, once the Drives are expanded, you may want to turn auto-expand back off
+> Optionally, once the Drives are expanded, you may want to turn auto-expand back off
+{: .prompt-tip }
+
 ```sh
 zpool set autoexpand=off rpool
 ```
