@@ -220,4 +220,8 @@ Check new size:
 zpool list
 ```
 
+Optionally, once the Drives are expanded, you may want to turn auto-expand back off
+```sh
+zpool set autoexpand=off rpool
+```
 ___
