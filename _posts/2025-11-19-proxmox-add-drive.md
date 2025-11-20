@@ -166,7 +166,7 @@ ___
 dd if=/dev/sda1 of=/dev/sdb1 status=progress
 ```
 
-#### Recreate the EFI boot information on partition 2
+##### Recreate the EFI boot information on partition 2
 ```
 proxmox-boot-tool format /dev/sdb2 --force
 proxmox-boot-tool init /dev/sdb2
