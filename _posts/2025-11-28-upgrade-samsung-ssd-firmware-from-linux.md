@@ -1,5 +1,5 @@
 ---
-title: Updating Firmware on Samsung NVMe Drives from Linux (Proxmox-Friendly Guide)
+title: Updating Firmware on Samsung NVMe Drives from Linux 
 author:
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
