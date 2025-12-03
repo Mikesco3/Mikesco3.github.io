@@ -59,7 +59,7 @@ ___
 
 > In order to identify the drives, we can issue the command:
 {: .prompt-tip }
-```
+```sh
 lsblk -o type,name,size,model,serial | grep -v zd
 ```
 
@@ -70,12 +70,12 @@ ___
 > _This does not copy any data, it only reproduces the partition boundaries_
 
 
-```
+```sh
 sfdisk -d /dev/sda | sfdisk --force /dev/sdb
 ```
 
 Double check the results:
-```
+```sh
 fdisk /dev/sdb
 ```
 then presss **`p`**
@@ -91,12 +91,12 @@ ___
 
 #### 2. Resize the ZFS partition to full size
 
-```
+```sh
 parted /dev/sdb  resizepart 3 100%
 ```
 
 > you may need to install `parted`
-> ```
+> ```sh
 > apt update && apt install -y parted 
 > ```
 {: .prompt-tip }
@@ -119,7 +119,7 @@ ___
 ##### 3-a. Identify the drive's correct by-id symlink
 
 List the drives filtering by `sdb3` or whatever is the case for your dirve:
-```
+```sh
 cd /dev/disk/by-id
 ls -la | grep sdb3
 ```
@@ -134,7 +134,7 @@ This is the name we want to use.
 > Double-check the old drive name before running this.
 {: .prompt-warning }
 
-```
+```sh
 zpool attach -f rpool \
   the-Old-HardDrive \
   the-New-HardDrive
@@ -142,14 +142,14 @@ zpool attach -f rpool \
 
 In our Example, this looks like:
 
-```
+```sh
 zpool attach -f rpool \
   ata-WDC_WD2004FBYZ-01YCBB1_SN001-part3 \
   ata-WDC_WD142KRYZ-01CMKB0_SN003-part3
 ```
 
 You can periodically check the resilvering status with
-```
+```sh
 zpool status
 ```
 
@@ -162,20 +162,42 @@ ___
 #### 4. Recreate the boot partitions
 
 ##### Copy the BIOS/boot (partition 1)
-```
+```sh
 dd if=/dev/sda1 of=/dev/sdb1 status=progress
 ```
 
 ##### Recreate the EFI boot information on partition 2
-```
+```sh
 proxmox-boot-tool format /dev/sdb2 --force
 proxmox-boot-tool init /dev/sdb2
 proxmox-boot-tool refresh
 proxmox-boot-tool status
 ```
 
-Check:
-```
+> **NOTE:**  If you encounter an error after running `proxmox-boot-tool init /dev/sdb2` that says:
+> ```
+> E: bootctl is not available - make sure systemd-boot-tools is installed
+> ```
+> This typically indicates that your system is using **GRUB** instead of `systemd-boot`.
+> 
+> To confirm, run **`proxmox-boot-tool status`** and look for the keyword **"grub"** in the output, for example:
+> ```
+> System currently booted with uefi
+> AABB-0011 is configured with: grub (versions: 6.17.2-2-pve)
+> AABB-0012 is configured with: grub (versions: 6.17.2-2-pve)
+> ```
+> 
+> In that case, use the following commands instead:
+> ```sh
+> proxmox-boot-tool format /dev/sdb2 --force
+> proxmox-boot-tool init /dev/sdb2 grub
+> proxmox-boot-tool refresh
+> ```
+{: .prompt-warning }
+
+
+##### Check the final Status:
+```sh
 proxmox-boot-tool status
 ```
 
@@ -184,14 +206,14 @@ ___
 #### 5. Detach the old Drive
 
 Once resilver is **complete**:
-```
+```sh
 sudo zpool detach rpool ata-WDC_WD2004FBYZ-01YCBB1_SN001-part3
 ```
 
 Shutdown Proxmox and physically remove the old disk.
 
-Then tell proxmox to forget about it:
-```
+Then tell proxmox to forget the missing drive(s):
+```sh
 proxmox-boot-tool clean
 ```
 ___
@@ -216,7 +238,7 @@ Trigger expansion manually if needed:
 That triggers ZFS to resize the vdev to use all available space.
 
 Check new size:
-```
+```sh
 zpool list
 ```
 
