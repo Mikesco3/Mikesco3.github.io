@@ -171,7 +171,6 @@ dd if=/dev/sda1 of=/dev/sdb1 status=progress
 proxmox-boot-tool format /dev/sdb2 --force
 proxmox-boot-tool init /dev/sdb2
 proxmox-boot-tool refresh
-proxmox-boot-tool status
 ```
 
 > **NOTE:**  If you encounter an error after running `proxmox-boot-tool init /dev/sdb2` that says:
