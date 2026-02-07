@@ -15,10 +15,6 @@ ___
 > A word of **Caution** :
 >
 > Do not blindly copy and paste these commands.
-> Always verify:
-> - You have the correct firmware for your exact SSD model.
-> - The device path you flash is correct.
-> - You have backups in case something goes wrong.
 >
 > This guide is not a simple "copy/paste and hope" set of commands.
 {: .prompt-warning }
