@@ -83,6 +83,11 @@ docker compose up -d --force-recreate && docker compose logs -f
 {: .prompt-info }
 
 ### Deploy the clients
+
+> Download them from:
+https://github.com/rustdesk/rustdesk/releases
+{: .prompt-tip }
+
 That should be it, just instal the rustdesk client and change the networking information:
 - Settings --> Network --> change the info in **ID/Relay server**
   - ID server
