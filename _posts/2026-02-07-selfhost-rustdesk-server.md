@@ -85,7 +85,7 @@ docker compose up -d --force-recreate && docker compose logs -f
 ### Deploy the clients
 
 > Download them from:
-> https://github.com/rustdesk/rustdesk/releases
+> [https://github.com/rustdesk/rustdesk/releases](https://github.com/rustdesk/rustdesk/releases)
 {: .prompt-tip }
 
 That should be it, just instal the rustdesk client and change the networking information:
