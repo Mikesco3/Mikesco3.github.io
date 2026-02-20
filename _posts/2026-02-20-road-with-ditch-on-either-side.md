@@ -1,6 +1,6 @@
 ---
 title: Analogy of the Road with a Ditch on either side
-author:
+author: Michael Schmitz
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2026-02-20 06:34:00 -0500

@@ -1,6 +1,6 @@
 ---
 title: Selfhosting Rustdesk
-author:
+author: Michael Schmitz
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2026-02-06 10:34:00 -0500
@@ -8,8 +8,8 @@ categories: [Blogging,Tutorial]
 tags: [guide, tutorial, linux, rustdesk, selfhosting]
 # pin: false
 ---
-___
 
+___
 
 ### Important Safety Notes
 > A word of **Caution** :
