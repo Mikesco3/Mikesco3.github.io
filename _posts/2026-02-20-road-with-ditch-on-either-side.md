@@ -14,7 +14,7 @@ ___
 # Analogy of the Road with a Ditch on either side
 
 For a very long time, I've had a very useful (to me) analogy of life being like a road with a Ditch on either side.
-   ![Triangle with ditches](/assets/img/images/20260220_Analogy-of-a-Road-with-a-Ditch-on-Either-Side_triangle-with-ditches.png)
+   ![Triangle with ditches](/assets/img/images/20260220_AnalogyOfRoadWithDitchOnEitherSide_TiangleWithDitches.png)
 
 Almost everything in life — even good things — has a point where it can go too far, veering off the road into "the ditch" or "off the cliff." Consider the political left and right. Each side often focuses its energy on arguing against the ditch on the other side of the road. They can become so consumed by this fight that they end up mirroring each other, entrenched in their own ditches, lobbing accusations across the pavement, obsessing over the opposite ditch. An outside observer might conclude that the better path lies somewhere in between — on the road itself. If each side could draw a line just before their own ditch, they could even emerge out of their ditch and also help the other side do the same.
 
@@ -70,7 +70,7 @@ Specially conflict resolution:
 ## The Graphic Model
 
 This is meant to be a simple geometric cognitive map, a geometric picture of healthy forward movement under constraint. A triangle of motion, with a circle of optimal positioning inside it.  
-   ![Triangle with ditches](/assets/img/images/20260220_Analogy-of-a-Road-with-a-Ditch-on-Either-Side_Triangle-Simple-Graphic.png)
+   ![Triangle with ditches](/assets/img/images/20260220_AnalogyOfRoadWithDitchOnEitherSide_TiangleSimple.png)
 
 ### 1. The Road and the Ditches
 
