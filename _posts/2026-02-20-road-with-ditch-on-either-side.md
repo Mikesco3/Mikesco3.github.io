@@ -142,24 +142,21 @@ If you slow too much, procrastinate, avoid too long, or hesitate excessively, yo
 So progress must exceed that trailing line.
 
 ---
+
+### A geometric model of perspective: a triangle of motion, with a circle of optimal positioning inside it.
+
+#### Combined:
+- **Extremes** — the ditches on either side.
+- **Guardrails** — boundaries drawn before the ditch, which perspective narrows into a triangle as we move forward.
+- **Objective / True North** — the horizon point that defines direction and requires continual realignment.
+- **Regression boundary** — the trailing line of falling behind (minimum forward movement).
+- **Optimal positioning zone** — the circle of stability within the triangle.
+- **Margin** — the buffer that allows adjustment without catastrophe.
+
+Life, decisions, and negotiations resemble traveling down a road bordered by ditches. Progress requires direction, boundaries, orientation, and enough margin to remain stable while moving forward.
+
 > This is just common sense dressed up visually.
 {: .prompt-tip }
-
-
-It’s a bounded progress model — a geometric picture of healthy parameters with forward movement under constraint.
-
-A hypothetical triangle of perspective, with a circle of optimal positioning zone inside it.
-
-combined:
-
-- Extremes (ditches),
-- Objective (horizon point),
-- Regression boundary (minimum speed),
-- Optional positioning zone (circle)
-- With dynamic safety margin around it (buffer),
-- And safety side-lines that perspective makes into a triangle with a narrowing tolerance.
-
-Life, decisions, and negotiations are like traveling down a road with a ditch on either side.
 
 ---
 
