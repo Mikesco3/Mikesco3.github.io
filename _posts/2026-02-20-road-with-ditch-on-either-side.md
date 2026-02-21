@@ -18,6 +18,7 @@ ___
 {: .prompt-tip }
 
 ___
+## The Core Concept
 
 For a very long time, I've had a very useful (to me) analogy of life being like a road with a Ditch on either side.
    ![Triangle with ditches](/assets/img/images/20260221_AnalogyOfRoadWithDitchOnEitherSide_TiangleWithDitches.png)
