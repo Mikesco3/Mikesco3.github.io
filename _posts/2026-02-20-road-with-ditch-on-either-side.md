@@ -13,6 +13,12 @@ ___
 
 # Analogy of the Road with a Ditch on either side
 
+___
+> **TLDR**: Almost everything we call good has a point where it ceases to be good. When navigating life, relationships, and debates, it is wise to draw lines before things drift into unhealthy extremes. This article proposes a simple cognitive map: draw guardrails before the ditch, set clear markers on the horizon, maintain margin, and keep moving forward. By staying oriented toward a true north, acknowledging the limits of our own perspective, and inviting honest communication and collaboration with others who can see what we cannot, we create space for constructive, long-term solutions.
+{: .prompt-tip }
+
+___
+
 For a very long time, I've had a very useful (to me) analogy of life being like a road with a Ditch on either side.
    ![Triangle with ditches](/assets/img/images/20260221_AnalogyOfRoadWithDitchOnEitherSide_TiangleWithDitches.png)
 
