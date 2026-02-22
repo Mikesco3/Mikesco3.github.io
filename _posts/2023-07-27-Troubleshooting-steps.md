@@ -4,7 +4,7 @@ author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2023-07-27 20:40:00 -0500
-categories: [Blogging,Tutorial]
+categories: [Guides,Tutorial]
 tags: [troubleshooting, windows, guide, tutorial]
 # pin: false
 ---

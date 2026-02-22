@@ -4,7 +4,7 @@ author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2022-11-05 09:22:00 -0500
-categories: [Blogging,Planning]
+categories: [Blogging,IT]
 tags: [hypervisors, vm, servers, migration, planning, p2v, ransomware]
 # pin: false
 ---

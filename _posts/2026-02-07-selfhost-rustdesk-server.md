@@ -3,7 +3,7 @@ title: Selfhosting Rustdesk
 author: mikesco3
 name: nycdh-jekyll
 date: 2026-02-06 10:34:00 -0500
-categories: [Blogging,Tutorial]
+categories: [Guides,Tutorial]
 tags: [guide, tutorial, linux, rustdesk, selfhosting]
 # pin: false
 ---
