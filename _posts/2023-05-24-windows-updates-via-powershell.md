@@ -1,6 +1,6 @@
 ---
 title: Windows Updates via PowerShell 
-author:
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2023-05-24 18:11:00 -0500

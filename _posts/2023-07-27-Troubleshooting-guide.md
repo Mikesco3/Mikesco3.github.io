@@ -1,6 +1,6 @@
 ---
 title: Basic Troubleshooting Guide 
-author:
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2023-07-27 20:40:00 -0500

@@ -1,6 +1,6 @@
 ---
 title: Selfhosting Rustdesk
-author: Michael Schmitz
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2026-02-06 10:34:00 -0500

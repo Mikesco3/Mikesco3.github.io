@@ -1,6 +1,6 @@
 ---
 title: Updating Firmware on Samsung NVMe Drives from Linux 
-author:
+author:mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2025-11-28 10:34:00 -0500

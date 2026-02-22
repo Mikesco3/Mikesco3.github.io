@@ -1,6 +1,6 @@
 ---
 title: Auto refesh browser in linux 
-author:
+author: mikesco3
 name: mikesco3
 link: https://github.com/Mikesco3
 date: 2023-01-17 11:28:00 -0500

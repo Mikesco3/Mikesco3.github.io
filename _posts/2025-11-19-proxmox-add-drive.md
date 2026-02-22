@@ -1,6 +1,6 @@
 ---
 title: Proxmox Add a Drive to a ZFS mirror
-author:
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2025-11-19 10:34:00 -0500

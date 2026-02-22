@@ -9,7 +9,7 @@ categories: [Blogging, Philosophy, Personal Development]
 tags: [blogging, cognitive model, decision making, conflict resolution, balance, leadership, systems thinking, critical thinking, moderation]
 excerpt: A geometric model for navigating life, conflict, critical thinking using the analogy of a road where we draw lines before the ditch on either side.
 keywords: balance, moderation, decision making, conflict resolution, cognitive model, leadership, common sense
-description: An framework for recognizing where to draw lines before the ditch, remain centered within an optimal zone, and move forward while orienting toward true north.
+description: A framework for recognizing where to draw lines before the ditch, remain centered within an optimal zone, and move forward while orienting toward true north.
 pin: true
 ---
 ___

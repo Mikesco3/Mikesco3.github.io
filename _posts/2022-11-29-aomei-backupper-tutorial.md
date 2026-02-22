@@ -1,6 +1,6 @@
 ---
 title: Aomei Backupper Tutorial 
-author:
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2022-11-29 11:54:00 -0500
