@@ -1,12 +1,16 @@
 ---
 title: Analogy of the Road with a Ditch on either side
-author: Michael Schmitz
+author: mikesco3
+layout: post
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2026-02-20 06:34:00 -0500
-categories: [Blogging]
-tags: [blogging]
-# pin: false
+categories: [Blogging, Philosophy, Personal Development]
+tags: [blogging, cognitive model, decision making, conflict resolution, balance, leadership, systems thinking, critical thinking, moderation]
+excerpt: A geometric model for navigating life, conflict, critical thinking using the analogy of a road where we draw lines before the ditch on either side.
+keywords: balance, moderation, decision making, conflict resolution, cognitive model, leadership, common sense
+description: An framework for recognizing where to draw lines before the ditch, remain centered within an optimal zone, and move forward while orienting toward true north.
+pin: true
 ---
 ___
 

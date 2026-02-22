@@ -15,8 +15,7 @@ My approach is to try to first understand the human element and then the busines
 
 ### Contact Info:  
 &#160;&#160;   **Michael Schmitz** <br>
-&#160;&#160;&#160;&#160;   Point Computer Services		    <br>
-&#160;&#160;&#160;&#160;   208 Collins Rd NE, Ste 104,       <br>
-&#160;&#160;&#160;&#160;   Cedar Rapids, IA 52402            <br>
-&#160;&#160;&#160;&#160;&#160;&#160;   319-244-8393                      <br>
+&#160;&#160;&#160;&#160;   <strong>Point Computer Services</strong>		    <br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;  Cedar Rapids, IA 52402            <br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   319-244-8393                      <br>
 
