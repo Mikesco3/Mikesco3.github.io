@@ -1,6 +1,6 @@
 ---
-title: Updating Firmware on Samsung NVMe Drives from Linux 
-author:mikesco3
+title: Upgrade Samsung SSD Firmware from Linux
+author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
 date: 2025-11-28 10:34:00 -0500
@@ -8,6 +8,8 @@ categories: [Blogging,Tutorial]
 tags: [guide, tutorial, linux, proxmox, firmware, samsung, nvme]
 # pin: false
 ---
+
+# Upgrade Samsung SSD Firmware from Linux
 ___
 
 

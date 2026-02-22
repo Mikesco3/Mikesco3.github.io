@@ -1,8 +1,6 @@
 ---
 title: Markdown Syntax
 author: mikesco3
-  name: Mikesco3
-  link: https://github.com/Mikesco3
 date: 2022-11-04 20:32:00 -0500
 categories: [Blogging,Tutorial]
 tags: [markdown, code]

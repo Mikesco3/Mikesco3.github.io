@@ -2,13 +2,13 @@
 title: Selfhosting Rustdesk
 author: mikesco3
 name: nycdh-jekyll
-link: https://github.com/Mikesco3
 date: 2026-02-06 10:34:00 -0500
 categories: [Blogging,Tutorial]
 tags: [guide, tutorial, linux, rustdesk, selfhosting]
 # pin: false
 ---
 
+# How to Install Your Own RustDesk Server
 ___
 
 ### Important Safety Notes
@@ -20,7 +20,7 @@ ___
 {: .prompt-warning }
 
 
-## Self-Hosting RustDesk Server
+## The Steps
 1. Create a VPS somewher (like Digital Ocean)
 2. Update:  `apt update && apt dist-upgrade -y`
 3. Create a user (optional): `add testuser`
