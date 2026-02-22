@@ -4,7 +4,7 @@ author: mikesco3
 name: mikesco3
 link: https://github.com/Mikesco3
 date: 2023-01-17 11:28:00 -0500
-categories: [Guids,Tutorial]
+categories: [Guides,Tutorial]
 tags: [linux, xdotool, guide, tutorial]
 # pin: false
 ---
