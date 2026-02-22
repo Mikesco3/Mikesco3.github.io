@@ -1,5 +1,5 @@
 ---
-title: Basic Troubleshooting Guide 
+title: Basic Troubleshooting Steps 
 author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
@@ -55,6 +55,6 @@ Once the hardware checks out... <br>
   **4.4.** Check Logs. <br>
 
 > All of that being said, there is no substitute for experience. 
-
+{: .prompt-tip }
 
  
