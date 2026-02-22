@@ -21,7 +21,7 @@ ___
 ## The Core Concept
 
 For a very long time, I've had a very useful (to me) analogy of life being like a road with a Ditch on either side.
-   ![Triangle with ditches](/assets/img/images/20260221_AnalogyOfRoadWithDitchOnEitherSide_TiangleWithDitches.png)
+   ![Triangle with ditches](/assets/img/images/20260222_AnalogyOfRoadWithDitchOnEitherSide_TiangleWithDitches.png)
 
 Almost everything in life — even good things — has a point where it can go too far, veering off the road into "the ditch" or "off the cliff." Consider the political left and right. Each side often focuses its energy on arguing against the ditch on the other side of the road. They can become so consumed by this fight that they end up mirroring each other, entrenched in their own ditches, lobbing accusations across the pavement, obsessing over the opposite ditch. An outside observer might conclude that the better path lies somewhere in between — on the road itself. If each side could draw a line just before their own ditch, they could even emerge out of their ditch and also help the other side do the same.
 
