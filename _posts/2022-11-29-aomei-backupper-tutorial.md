@@ -8,8 +8,9 @@ categories: [Blogging,Tutorial]
 tags: [backup, backup/aomei-backupper, guide, tutorial]
 # pin: false
 ---
+# Full System Backup
 
-# Why, What for...
+## Why, What for...
 A full image backup captures the whole filesystem, so that in the event of a hard drive failure, or total loss of the computer, the system can be restored entirely as it was at the time of the backup, even if restoring onto an entirely different computer. <br>
 
 We are going to focus on Aomei Backupper Free, as it is fairly generous in it's free version and the backups are pretty maleable. <br>
@@ -17,26 +18,26 @@ We are going to focus on Aomei Backupper Free, as it is fairly generous in it's 
 
 <hr class="solid">
 
-# Setup
-## Download Aomei Backupper Standard (free)
+## Setup
+### Download Aomei Backupper Standard (free)
 Download and install [Aomei Backupper free](https://www2.aomeisoftware.com/download/adb/AOMEIBackupperStd.exe) <br> 
 from: https://www.aomeitech.com/ab/standard.html <br>
-## Skip the offer
+### Skip the offer
 *Bypass and skip all of the upgrade offers.*
    ![Skip Offer](/assets/img/images/Pasted_Image_20221128121653.png)
-## Install
+### Install
    ![Install Now](/assets/img/images/Pasted_Image_20221128121907.png)
 
 <hr class="solid">
 
-# Backup
+## Backup
 In order to make a first backup, make sure you have access to another store drive or network location that has enough available storage. <br>
-## Start Aomei Backup
+### Start Aomei Backup
 1. Open Aomei backupper
 2. Select Backup, then
 4. Select Disk Backup   
    ![Start Aomei Backup](/assets/img/images/Pasted_Image_20221128124017.png)
-## Set the Backup Name and Source
+### Set the Backup Name and Source
 4. Click the small pencil next to Task name and, 
    **name your backup**, I would recommend using a format like: YYYYMMDD_BackupName, 
    ie: `20221128_JohnDoeLaptopWin10`
@@ -48,7 +49,7 @@ In order to make a first backup, make sure you have access to another store driv
   *in our example it is drive **F:***
 8. Click **Add**
 ![Select Backup Source](/assets/img/images/Pasted_Image_20221128130117.png) 
-## Set the Destination and Start       
+### Set the Destination and Start       
 9. Select the Destination Path
    >[! Info] In most cases the drive letter will be correct.
 
@@ -60,12 +61,12 @@ In order to make a first backup, make sure you have access to another store driv
 10. Click **Start Backup**
    ![Start Backup](/assets/img/images/Pasted_Image_20221128155830.png)
 
-## Check Progress
+### Check Progress
 11. To view more information about the Backup, including the finish time click the link below the backup progress indicator.
    ![Check Progress](/assets/img/images/Pasted_Image_20221128131629.png)
    ![Remaining Time](/assets/img/images/Pasted_Image_20221128155550.png)
 
-## Finish and Eject
+### Finish and Eject
 12. When the backup is done, click **Finish**.
    ![Finish](/assets/img/images/Pasted_Image_20221128155735.png)
 
@@ -78,8 +79,8 @@ In order to make a first backup, make sure you have access to another store driv
 
 <hr class="solid">
 
-# Software
-## List of other Full Image Backup Software
+## Software
+### List of other Full Image Backup Software
 There are many programs out there for capturing Full Image backups, some of them are:
 
 |Name      | Description  | Free Option   | Runs from Windows | restore to smaller drive |

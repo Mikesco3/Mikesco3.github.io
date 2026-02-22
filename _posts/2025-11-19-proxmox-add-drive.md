@@ -8,6 +8,8 @@ categories: [Blogging,Tutorial]
 tags: [guide, tutorial, linux, proxmox, virtualization, zfs]
 # pin: false
 ---
+
+# How to Add a Drive to ZFS in Proxmox
 ___
 
 ## Before We Begin

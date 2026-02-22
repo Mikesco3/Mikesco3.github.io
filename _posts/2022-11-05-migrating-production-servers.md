@@ -8,8 +8,9 @@ categories: [Blogging,Planning]
 tags: [hypervisors, vm, servers, migration, planning, p2v, ransomware]
 # pin: false
 ---
+# Virtualizing Physical Servers
 
-# Why, What for...
+## Why, What for...
 This is intended to propose the strategic planning for a lot of situations where someone needs to migrate a critical production server, perhaps running on physical hardware or even another hypervisor, to a Virtual Instance running within a new hypervisor. 
 
 For example: 
@@ -24,7 +25,7 @@ For example:
 
 *The specific steps can be documented and detailed once the finer details about the solution have been established.*
 
-# Important Considerations
+## Important Considerations
 It is important that at every step:
 * Make a good backup before you even begin.
 * Work on a copy, not on the production environment.
@@ -39,8 +40,8 @@ It is important that at every step:
   - It would be even better if the snapshotting system underneath is being replicated to a secondary physical server, even at a different physical location. (aside of a high-availability cluster).
   - There could be a high-availability cluster of 3 or more physical servers underneath it.
 
-# The Process
-## Most likely Scenario
+## The Process
+### Most likely Scenario
 1. Grab a full Image backup of the working instance of the physical server. 
 2. Prepare the Hypervisor that will run the Virtual Instance.
    *This doesn't even need to be the eventual server where the production instance will run on.*
@@ -58,7 +59,7 @@ It is important that at every step:
    
 This process assumes that there is an opportunity to migrate the remaining live production data, that would have changed between the initial full image backup, (between **step 1** and **step 7**) until the time of bringing up the new Virtual Instance.
 
-## Alternate Scenario
+### Alternate Scenario
 If there isn't a chance to transfer just the production data that changed separately after the full system backup, then the process would be almost identical to the one for the most likely scenario, except that:
 * The first time around you would run the whole process on a dry-run test (**step 1** through **step 6** of the Most likely scenario would still remain the same).
 * Now right before **step 7** of the most likely scenario, the process would involve:

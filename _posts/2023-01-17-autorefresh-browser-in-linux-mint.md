@@ -9,7 +9,7 @@ tags: [linux, xdotool, guide, tutorial]
 # pin: false
 ---
 
-# Automatically refresh the browser by sending an F5 keystroke at regular intervals
+# How to automatically refresh the browser by sending a regular F5 keystroke
 
 ## Why, What for...
 The purpose of this project is to automatically refresh a web page displayed on a Linux machine at regular intervals. This can be useful in situations where the website being displayed is frequently updated, or in case the internet connection is lost and needs to be re-established. By using the Brave browser and Linux Mint operating system, we will show you how to set up a script that sends an F5 keystroke to refresh the browser at specific intervals. <br>

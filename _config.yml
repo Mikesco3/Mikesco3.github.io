@@ -15,12 +15,12 @@ timezone: America/Chicago
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Docs           # the main title
+title: Mikesco3           # the main title
 
-tagline: A Doc site for my homelab     # it will display as the sub-title
+tagline: IT & Practical Experience     # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal Documentation site.
+  Practical IT guides, business strategy, solutions oriented, real-world experience and practical thinking.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://Mikesco3.github.io'

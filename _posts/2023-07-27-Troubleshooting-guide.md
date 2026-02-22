@@ -8,14 +8,15 @@ categories: [Blogging,Tutorial]
 tags: [troubleshooting, windows, guide, tutorial]
 # pin: false
 ---
+# Real-world IT Troubleshooting
 
-# Why, What for...
+## Why, What for...
 I often run into quick guides on how to troubleshoot a computer, so I thought I'd put together my own version of a simple list I generally follow when trying to identify a problem. 
 Obviously this is a very general simplified version, and once with enough experience troubleshooting something you start to develop an instinct about where to zoom in and narrow the search process.  <br>
 You don't necessarily need to follow the order or the whole guide, usually you'll get hints that will lead to the solution along the way. <br>
 
 ___
-# Before Anything, **CREATE A BACKUP FIRST!** _(if possible)..._
+## Before Anything, **CREATE A BACKUP FIRST!** _(if possible)..._
 
 1. **Try avoid doing something you cannot undo...** <br>
 Take Notes (connections, settings, passwords), 
@@ -29,7 +30,7 @@ Especially if you're unfamiliar with the information you're handling...  <br>
 > _**That would be like a Doctor not knowing whether to kill the Cancer or the patient...**_
 
 ___
-# Begin:
+## Begin:
 
 1. **Check Power:** (in all of it's variants) <br>
 (is the thing plugged in?, battery voltage, etc.) <br>
