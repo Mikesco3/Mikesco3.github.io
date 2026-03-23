@@ -1,5 +1,5 @@
 ---
-title: Creating a Recovery Partition in Windows 11
+title: Creating a Recovery Partition in Windows
 author: mikesco3
 layout: post
 name: nycdh-jekyll
@@ -7,14 +7,14 @@ link: https://github.com/Mikesco3
 date: 2026-03-23 12:12:00 -0500
 categories: [Tech, Windows, How-To]
 tags: [windows, windows11, recovery, diskpart, reagentc, partition, gparted, minitool, sysadmin]
-excerpt: How to create a proper Windows 11 recovery partition in the correct position on disk — EFI → MSR → Recovery → Windows — using GParted/MiniTool, diskpart, and reagentc.
-keywords: windows 11, recovery partition, diskpart, reagentc, WinRE, partition layout
+excerpt: How to create a proper Windows recovery partition in the correct position on disk — EFI → MSR → Recovery → Windows — using GParted/MiniTool, diskpart, and reagentc.
+keywords: windows, recovery partition, diskpart, reagentc, WinRE, partition layout
 description: Step-by-step guide to shrinking the Windows partition, creating a 1.5 GB recovery partition in the correct disk position, and re-registering WinRE with reagentc.
 pin: false
 ---
 ___
 
-# Creating a Recovery Partition in Windows 11
+# Creating a Recovery Partition in Windows 
 
 ___
 
