@@ -4,7 +4,7 @@ author: mikesco3
 layout: post
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
-date: 2026-03-23 10:55:00 -0500
+date: 2026-03-23 12:12:00 -0500
 categories: [Tech, Windows, How-To]
 tags: [windows, windows11, recovery, diskpart, reagentc, partition, gparted, minitool, sysadmin]
 excerpt: How to create a proper Windows 11 recovery partition in the correct position on disk — EFI → MSR → Recovery → Windows — using GParted/MiniTool, diskpart, and reagentc.
@@ -33,14 +33,16 @@ This guide assumes you have a **medium level of comfort** with disk tools and th
 
 ## Overview of the Process
 
-1. **Disable WinRE** from within Windows so the recovery partition is not locked.
-2. **Shrink the Windows partition** using GParted or MiniTool Partition Wizard (bootable USB), freeing 1.5 GB immediately *before* the Windows partition.
-3. **Create and configure the recovery partition** using `diskpart`.
-4. **Re-enable and re-register WinRE** using `reagentc`.
+1. **Backup WinRE** - Backup the `Recovery` folder to a safe location.
+2. **Disable WinRE** from within Windows so the recovery partition is not locked.
+3. **Shrink the Windows partition** using GParted or MiniTool Partition Wizard (bootable USB), freeing 1.5 GB immediately *before* the Windows partition.
+4. **Create and configure the recovery partition** using `diskpart`.
+5. **Re-enable and re-register WinRE** using `reagentc`.
+6. **Cleanup** - Remove the drive letter R.
 
 ---
 
-## Target Partition Layout
+### Target Partition Layout
 
 | # | Type | Size |
 |---|------|------|
@@ -51,39 +53,16 @@ This guide assumes you have a **medium level of comfort** with disk tools and th
 | 5 | Data / Other | (if applicable) |
 
 ---
+## The Process
 
-## Step 1 — Backup WinRE (run as Administrator in Windows)
+### Step 1 — Backup the WinRE `Recovery` folder to a safe location.
 
-Before touching partitions, disable WinRE so Windows releases its lock on the recovery partition.
-
-```cmd
-reagentc /disable
-```
-
-Verify the status:
-
-```cmd
-reagentc /info
-```
-
-> WinRE status should show **Disabled**.
-{: .prompt-info }
-
-```cmd
-reagentc /info
-```
-
-
-###  from **`diskpart`** assign the Recovery Partition a drive letter 
-
-```cmd
-diskpart
-```
+####  from **`diskpart`** assign the Recovery Partition a drive letter 
 
 > Assuming our Recovery partition was **partition 4** in Windows
 
-
-```diskpart
+``` batch
+diskpart
     list disk
     select disk 0
     list partition
@@ -91,17 +70,40 @@ diskpart
     ass letter R
 ```
 
-### Browse to the partition and backup the Recovery Folder 
- You may need to unhide system and hidden folders and backup the `Recovery` folder which will have the winre.wim file within it to somewhere in the Windows Partition
+#### Browse to the partition and backup the Recovery Folder 
+You may need to unhide system and hidden folders and backup the `Recovery` folder which will have the `Winre.wim` file within it to somewhere in the Windows Partition
+
+### Step 2 — Disable WinRE (run as Administrator in Windows)
+
+Before touching partitions, disable WinRE so Windows releases its lock on the recovery partition.
+
+``` batch
+reagentc /disable
+```
+
+Verify the status:
+
+``` batch
+reagentc /info
+```
+
+> WinRE status should show **Disabled**.
+{: .prompt-info }
+
 
 ---
 
-## Step 2 — Shrink the Windows Partition (GParted or MiniTool)
+### Step 3 — Shrink the Windows Partition (GParted or MiniTool)
 
 Boot from a **GParted Live USB** or **MiniTool Partition Wizard bootable USB**.
 
 - Select the **Windows (C:)** partition.
 - Shrink it by **1536 MB (1.5 GB)**, placing the freed space **before** the Windows partition (i.e., to the left in the visual layout).
+- Create a new partition in the freed space with the following settings:
+  - **Type**: Primary
+  - **Size**: 1536 MB
+  - **File System**: NTFS
+  - **Boot Flag**: Off
 - Apply the operation and reboot back into Windows.
 
 > Make sure the freed unallocated space lands *between* the MSR partition and the Windows partition — not at the end of the disk.
@@ -110,18 +112,19 @@ Boot from a **GParted Live USB** or **MiniTool Partition Wizard bootable USB**.
 > While you are at it, it's much easier to create that partition from **Gparted** or **Minitool Parition Wizard**
 {: .prompt-tip }
 
- _but we will the commands below just in case_
+> But we will the commands below just in case
+
 ---
 
-## Step 3 — Create the Recovery Partition (diskpart)
+### Step 4 — Create the Recovery Partition (diskpart)
 
 Open **Command Prompt as Administrator** and launch diskpart:
 
-```cmd
+``` batch
 diskpart
 ```
 
-```diskpart
+``` batch
 list disk
 select disk 0
 list partition
@@ -132,27 +135,37 @@ list partition
 
 Create and configure the recovery partition:
 
-```diskpart
-create partition primary size=1536 offset=643072
-format quick fs=ntfs label="Recovery"
-set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac
-gpt attributes=0x8000000000000001
-list partition
-ass letter=r
-exit
+``` batch
+diskpart
+  create partition primary size=1536 offset=643072
+  format quick fs=ntfs label="Recovery"
+  set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac
+  gpt attributes=0x8000000000000001
+  list partition
+  ass letter=r
+  exit
 ```
 
-> The GUID `de94bba4-06d1-4d40-a16a-bfd50179d6ac` is the standard Windows Recovery partition type. The GPT attribute flags mark it as required and hidden.
+> The GUID `de94bba4-06d1-4d40-a16a-bfd50179d6ac` is the standard Windows Recovery partition type. 
 {: .prompt-tip }
 
-### Copy back the `Recovery` folder previously backed up
+> The GPT attribute flags mark it as required and hidden.
+>> The meaning of the GPT Attributes:
+>> - `0x8000000000000000`: Hidden and No Drive Letter.
+>> - `0x0000000000000001`: Required partition.
+>> - `0x8000000000000001`: Combined: Required, hidden, and no drive letter. 
+{: .prompt-tip }
+
+
+#### Copy back the `Recovery` folder previously backed up
 ---
 
-## Step 4 — Re-enable WinRE and Register the New Partition
+### Step 5 — Re-enable WinRE and Register the New Partition
 
 Back in an **elevated Command Prompt**:
 
-```cmd
+``` batch
+reagentc /setreimage /path R:\Recovery\WindowsRE /target c:\Windows
 reagentc /enable
 reagentc /info
 ```
@@ -164,17 +177,48 @@ A successful result looks like this:
 > WinRE status should show **Enabled** and the path should point to the new partition.
 {: .prompt-info }
 
+### Step 6 — Cleanup (Remove Drive Letter)
+
+At this point we can remove the drive letter `R:` from showing up in the system.
+
+``` batch
+diskpart
+  sel vol r
+  remove letter=r
+  exit
+```
+
+Prevent the drive mount from showing up in the system. 
+> From an **elevated Command Prompt**:
+
+``` batch
+  mountvol /R
+```
+
 ---
 
 ## Quick Reference — Commands Only
 
-### Step 1 — Disable WinRE
-```cmd
+### Step 1 — Backup andDisable WinRE
+``` batch
+diskpart
+    list disk
+    select disk 0
+    list partition
+    sel part 4
+    ass letter R
+```
+> Copy the Recovery folder from R: to a safe location.
+
+``` batch
   reagentc /disable
 ```
+> - Remove the Recovery partition from the system.
+> - Resize the Windows partition to make room for the new Recovery partition.
+> - Recreate the Recovery partition with the correct size and attributes.
 
-### Step 3 — `diskpart` Create the Recovery Partition
-```cmd
+### Step 4 — `diskpart` Create the Recovery Partition
+``` batch
 diskpart
   list disk
   select disk 0
@@ -185,11 +229,23 @@ diskpart
   gpt attributes=0x8000000000000001
   exit
 ```
-### Step 4 — `reagentc` Re-enable WinRE
-```cmd
+> - Copy the Recovery folder from the backup location to the new Recovery partition.
+
+### Step 5 — `reagentc` Re-enable WinRE
+``` batch
 reagentc /setreimage /path R:\Recovery\WindowsRE /target c:\Windows
 reagentc /enable
 reagentc /info
+```
+> - Reboot to test
+
+### Step 6 — Cleanup
+``` batch
+diskpart
+  sel vol r
+  remove letter=r
+  exit
+mountvol /R
 ```
 
 ---
@@ -198,7 +254,6 @@ reagentc /info
 
 - **reagentc /enable fails** — confirm the partition type GUID and GPT attributes were set correctly in diskpart. Run `list partition` and verify the recovery partition exists.
 - **WinRE path points to wrong location** — use `reagentc /setreimage /path <path>` to manually point it to the correct partition if auto-detection fails.
-- **Unallocated space landed at the wrong position** — GParted and MiniTool both allow you to drag which side of the partition the freed space goes to; make sure it goes to the *left* (before Windows, not after).
 
 ---
 
