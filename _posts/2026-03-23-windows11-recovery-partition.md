@@ -69,21 +69,27 @@ reagentc /info
 > WinRE status should show **Disabled**.
 {: .prompt-info }
 
-> from `diskpart` assign the Recovery Partition a drive letter 
 ```cmd
 reagentc /info
 ```
+
+
+###  from **`diskpart`** assign the Recovery Partition a drive letter 
+
 ```cmd
 diskpart
 ```
-> Assuming our Recovery partition was partition 4 in Windows
+
+Assuming our Recovery partition was **partition 4** in Windows
+
 ```diskpart
-list disk
-select disk 0
-list partition
-sel part 4
-ass letter R
+    list disk
+    select disk 0
+    list partition
+    sel part 4
+    ass letter R
 ```
+
 ### Browse to the partition and backup the Recovery Folder 
  You may need to unhide system and hidden folders and backup the `Recovery` folder which will have the winre.wim file within it to somewhere in the Windows Partition
 
