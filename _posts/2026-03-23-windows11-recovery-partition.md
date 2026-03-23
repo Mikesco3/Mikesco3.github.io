@@ -80,7 +80,8 @@ reagentc /info
 diskpart
 ```
 
-Assuming our Recovery partition was **partition 4** in Windows
+> Assuming our Recovery partition was **partition 4** in Windows
+
 
 ```diskpart
     list disk
