@@ -16,7 +16,7 @@ ___
 
 # What is Money
 
-> **TLDR**: There seems to be an obsession in collapsing value into the financial layer. The first part is to realize there are more layers where value can occur than just the financial layer. The next thing is that, once we realize that, we need to try to find balance. But, on top of that, the Layers seem to have an intrinsic priority, despite our awareness and control, but becoming aware of it helps us ascend.
+> **TLDR**: Money is one of those things that everyone chases after and almost no one seems to understand or be able to define.
 {: .prompt-tip }
 
 

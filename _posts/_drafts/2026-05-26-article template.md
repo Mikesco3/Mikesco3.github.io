@@ -4,7 +4,7 @@ author: mikesco3
 layout: post
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
-date: 2026-03-26 06:34:00 -0500
+date: 2026-03-26 00:00:00 -0500
 categories: [Blogging, Philosophy, Personal Development]
 tags: [blogging, cognitive model, decision making, conflict resolution, balance, leadership, systems thinking, critical thinking, moderation, planning]
 excerpt: Fill In Excerpt.

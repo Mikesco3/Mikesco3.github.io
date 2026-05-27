@@ -18,6 +18,9 @@ ___
 
 ---
 
+> **Draft**: This is a first draft I put together with ChatGPT, but I hope to come back soon and polish it, condense and rewrite with my own wording.
+{: .prompt-warning }
+
 > **TLDR**: We often live as if all value can be reduced to money, productivity, or measurable success. But life contains multiple layers of value — spiritual, human _(relational)_, physical _(health)_, intellectual, financial, and others — and they are not fully interchangeable. 
 > Learning to align our priorities with their intrinsic hierarchy may be one of the most important forms of orientation in life.
 {: .prompt-tip }
