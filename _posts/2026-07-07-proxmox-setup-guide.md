@@ -16,6 +16,9 @@ pin: false
 ---
 # Proxmox Installation, Configuration, and Best Practices - v20260707
 
+___
+___
+
 ## Before We Begin
 ### Introduction — Why, What For
 
@@ -42,7 +45,7 @@ In this guide, we’ll walk through our current Proxmox configuration — explai
 > - [Debian Administrator’s Handbook](https://debian-handbook.info/)
 > - [Klara Systems' zfs basecamp](https://klarasystems.com/zfs-basecamp/)
 
----
+___
 
 ### Hardware Philosophy
 
@@ -112,6 +115,7 @@ Used **workstation-class systems** often make excellent Proxmox hosts. A single-
 By combining dependable drives, ZFS snapshots and replication, and Proxmox virtualization, we create a system that’s both **resilient and cost-effective** — one that trades expensive proprietary backup solutions for open tools that preserve our ability to recover, replicate, and keep running long after the hardware has changed.
 
 ___
+___
 
 ## Installing Proxmox
 
@@ -119,6 +123,8 @@ With theoretical part out of the way, we can move on to installing Proxmox itsel
 
 > These commands are meant to be read, understood, and adapted (not just copy-pasted). Think of this as a recipe that keeps improving over time, and feel free to refine it for your own setup or share any insights back.
 {: .prompt-warning }
+
+___
 
 ### Prepare the Hardware
 - [ ] Visually inspect the system.  
@@ -132,6 +138,7 @@ With theoretical part out of the way, we can move on to installing Proxmox itsel
 > _You may need to upgrade the BIOS by booting the machine into Windows one last time before installing Proxmox._
 {: .prompt-tip }
 
+___
 
 ### Install Proxmox with Defaults
 
@@ -203,11 +210,14 @@ Then Reboot
 > in which case, run: `poweroff`
 {: .prompt-tip }
 
-___  
+___
+___
 
 ## Configure ZFS Storage
 
 With the system back on, we can now create the ZFS datasets that will organize how storage is used and replicated. 
+
+___
 
 ### Create ZFS Datasets
 
@@ -382,6 +392,7 @@ Each dataset serves a clear role within the system:
 {: .prompt-warning }
 
 ___
+___
 
 ## User Management and Access
 
@@ -397,6 +408,8 @@ This section also serves as a reference for when we eventually need to create an
 At this stage, we’ll create a Linux user, link it to Proxmox permissions, and configure Samba access for network shares such as `_Backup`.
 
 > Let’s start by creating our first dedicated user — one that we’ll use for day-to-day management instead of logging in directly as root.
+
+___
 
 ### Create a Linux User
 
@@ -426,6 +439,8 @@ smbpasswd -a johndoe
 ```
 > This password will be required when connecting from a Windows or macOS workstation.
 {: .prompt-tip }
+
+___
 
 ### Add User to Proxmox
 
@@ -567,6 +582,7 @@ If authentication succeeds, you should now have full access to the `_Backup` sha
 If not, trace back your steps and double-check for any typos or skipped commands — Samba is very particular about syntax and permissions.
 
 ___
+___
 
 ## Additional Software & Tools
 
@@ -574,7 +590,7 @@ At this point the Proxmox host is fully functional. The remaining tools aren't r
 
 The two tools that most influence the design described in this guide are **Sanoid** and **Syncoid**.
 
----
+___
 
 ### Sanoid & Syncoid
 
@@ -623,8 +639,12 @@ A sample configuration file is available from the Sanoid project:
 wget https://raw.githubusercontent.com/jimsalterjrs/sanoid/master/sanoid.conf \
     -O /etc/sanoid/sanoid.conf
 ```
+> The [GitHub repository for this article](https://raw.githubusercontent.com/Mikesco3/Mikesco3.github.io/refs/heads/main/_posts/_samples/sanoid.conf) includes a sample `sanoid.conf` based on the configuration I use in my own environments.
+>
+> Adjust the snapshot retention policies based on your available storage capacity and your recovery requirements.
+{: .prompt-info }
+> - https://raw.githubusercontent.com/Mikesco3/Mikesco3.github.io/refs/heads/main/_posts/_samples/sanoid.conf
 
-At the end of this article I've included the configuration I currently use as a starting point. Adjust the snapshot retention policies to match your own storage capacity and recovery requirements.
 
 #### Enable Automatic Snapshots
 
@@ -660,6 +680,8 @@ I then schedule this script from `crontab`:
 
 This example runs every two hours during the workday, but the schedule should reflect your own recovery objectives and how frequently your data changes.
 
+___
+
 ### DriveStatus
 
 Knowing **which drive is which** becomes surprisingly important once a server has multiple disks. A SMART warning isn't very helpful if you can't immediately identify the physical drive that needs attention.
@@ -688,6 +710,30 @@ I typically use it after installing new drives, before replacing a failed disk, 
 Example output (model names and serial numbers anonymized):
 
 ![drivestatus](/assets/img/images/20260104-0055_DriveStatusExample.png)
+
+___
+
+### Remote Access Options
+
+For securely accessing your Proxmox server remotely, consider using one of these VPN/overlay network solutions:
+
+- **ZeroTier** — Easy-to-use virtual network overlay that connects devices as if they were on the same LAN.
+- **Tailscale** — Simple mesh VPN built on WireGuard with easy device management.
+- **NetBird** — Open-source mesh VPN built on WireGuard with a self-hosting option.
+- **WireGuard** — Lightweight, high-performance VPN protocol for building your own secure tunnels.
+- **Nebula** — Open-source mesh networking solution designed for secure connectivity between hosts.
+
+#### ZeroTier Install
+
+```sh
+curl -s https://install.zerotier.com | sudo bash
+```
+
+After installation, log in to [my.zerotier.com](https://my.zerotier.com), create or configure your network, and authorize additional devices to join.
+
+___
+___
+
 
 ## Maintenance
 
