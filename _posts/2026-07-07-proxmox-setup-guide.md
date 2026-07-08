@@ -5,7 +5,7 @@ layout: post
 author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
-date: 2026-07-08 07:00:00 -0500
+date: 2026-07-08 04:30:00 -0500
 categories: [Technology, Tutorial, Virtualization, Blogging]
 tags: [proxmox, proxmox-ve, linux, virtualization, zfs, homelab, server, self-hosting, guide, tutorial]
 excerpt: A practical guide for setting up Proxmox VE with recommended configurations, storage setup, networking, maintenance, and troubleshooting tips.
