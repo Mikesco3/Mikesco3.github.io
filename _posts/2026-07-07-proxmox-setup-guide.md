@@ -657,7 +657,7 @@ systemctl status sanoid sanoid-prune sanoid.timer
 
 Once enabled, Sanoid will begin creating and pruning snapshots according to your configuration.
 
-#### Replicating Production Storage
+### Syncoid: Replicating Production Storage
 
 Snapshots are only half of the strategy.
 
@@ -681,6 +681,8 @@ I then schedule this script from `crontab`:
 
 This example runs every two hours during the workday, but the schedule should reflect your own recovery objectives and how frequently your data changes.
 
+> For more advanced scheduling checkout [crontab.guru](https://crontab.guru/#2_06_*_*_SUN)):
+{: .prompt-tip }
 ___
 
 ### DriveStatus
@@ -698,7 +700,7 @@ sudo chmod +x /usr/bin/drivestatus
 ```
 
 > As with any third-party script, take a few minutes to review the source before installing it. Understanding what a script does is always better than blindly piping commands into your system.
-{: .prompt-info }
+{: .prompt-warning }
 
 Once installed, simply run:
 
