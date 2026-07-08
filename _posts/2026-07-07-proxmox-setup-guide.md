@@ -651,7 +651,8 @@ wget https://raw.githubusercontent.com/jimsalterjrs/sanoid/master/sanoid.conf \
 Enable the timer:
 
 ```sh
-systemctl enable --now sanoid.timer
+systemctl enable --now sanoid sanoid-prune 
+systemctl status sanoid sanoid-prune sanoid.timer 
 ```
 
 Once enabled, Sanoid will begin creating and pruning snapshots according to your configuration.
