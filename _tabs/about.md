@@ -19,3 +19,5 @@ My approach is to try to first understand the human element and then the busines
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;  Cedar Rapids, IA 52402            <br>
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;   319-244-8393                      <br>
 
+- LinkedIn: [https://www.linkedin.com/in/mikesco3/](https://www.linkedin.com/in/mikesco3/)
+- Twitter: [https://x.com/Mikesco3](https://x.com/Mikesco3)

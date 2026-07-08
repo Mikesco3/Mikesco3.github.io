@@ -38,9 +38,10 @@ social:
     # The first element serves as the copyright owner's link
     - https://twitter.com/mikesco3      # change to your twitter homepage
     - https://github.com/mikesco3       # change to your github homepage
+    - https://linkedin.com/in/mikesco3  # change to your linkedin homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/mikesco3
+    
 
 ## google_site_verification:               # fill in to your verification string
 # webmaster_verifications:
