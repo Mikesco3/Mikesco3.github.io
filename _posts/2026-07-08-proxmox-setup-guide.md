@@ -791,6 +791,234 @@ errors: No known data errors
 {: .prompt-warning }
 
 ___
+
+### Verify Replication
+
+#### Recommendation
+
+**Frequency:** Every 6–12 months.
+
+Review the entire replication chain rather than assuming it is working.
+
+- [ ] Boot one or more replicated ("Shadow") virtual machines.
+- [ ] Verify that replication jobs are still running successfully.
+- [ ] Confirm that recent snapshots exist on both the source and destination datasets.
+- [ ] Check available storage capacity and adjust your `sanoid.conf` retention policies if needed.
+
+#### Why
+
+Replication can fail quietly. A failed replication job may go unnoticed for months until you actually need it.
+
+Periodically verifying that your replicated datasets are current—and that the replicated VMs are actually bootable—provides confidence that your recovery plan will work when it matters most.
+
+___
+
+### Disaster Recovery Drills
+
+#### Recommendation
+
+**Frequency:** Every 1–2 years.
+
+Treat disaster recovery like a fire drill.
+
+- [ ] Perform a complete restore of one or more virtual machines.
+- [ ] If practical, perform a full bare-metal recovery onto different hardware.
+- [ ] Verify that you can recover the system using only your documentation.
+- [ ] Update your documentation with anything you learned during the exercise.
+
+#### Why
+
+Backups are only as valuable as your ability to restore them.
+
+A disaster recovery drill exposes missing documentation, forgotten passwords, outdated assumptions, and recovery steps that only become apparent under pressure. It is far better to discover these issues during a planned exercise than during an actual outage.
+
+___
+
+### Keep Proxmox Updated
+
+#### Recommendation
+**Frequency:** Every 6–12 months, especialy if there is a vulnerability disclosure.
+
+Apply updates regularly rather than allowing them to accumulate.
+
+Review and update:
+
+- [ ] Proxmox VE packages
+- [ ] Debian packages
+- [ ] BIOS and firmware
+- [ ] RAID, HBA, or NVMe firmware (when applicable)
+- [ ] Virtual machine operating systems
+- [ ] Critical applications running inside the VMs
+
+Before major upgrades:
+
+- [ ] Verify recent backups.
+- [ ] Create Snapshots if Need be.
+- [ ] Confirm replication is current.
+- [ ] Read the Proxmox release notes.
+
+#### Why
+
+Smaller, regular updates are generally easier to troubleshoot than performing years' worth of upgrades all at once. Keeping systems current also reduces security exposure and makes future upgrades less disruptive.
+
+___
+
+### Backup Strategy
+
+#### Recommendation
+
+**Frequency:** Every 6–12 months, especialy before and after major software version changes.
+
+Maintain multiple independent copies of important data.
+
+Consider maintaining:
+
+- [ ] Offline backups stored on removable media.
+- [ ] Off-site backups.
+- [ ] Cloud or remote NAS replication.
+- [ ] Periodic full-system images in addition to snapshot replication.
+
+#### Why
+
+A mirrored ZFS pool protects against disk failure.
+
+Snapshots protect against accidental deletion and ransomware.
+
+Replication protects against hardware failure.
+
+None of these protect against fire, theft, lightning, or catastrophic site loss.
+
+A proper backup strategy follows the 3-2-1 principle whenever practical.
+
+> **The 3-2-1 Backup Rule:** Three total copies, on two different media types, with one stored offsite
+{: .prompt-tip }
+
+___
+
+### Hard Drive Age
+
+#### Recommendation
+
+**Frequency:** every 4–6 years.
+
+- [ ] Consider replacing hard drives before the end of the warranty period, especially in production systems.
+
+If replacing multiple drives in a mirrored pool, stagger replacements whenever practical.
+
+#### Why
+
+Hard drives are mechanical devices with finite service lives.
+
+Replacing every drive at the same time increases the chance of receiving multiple drives from the same manufacturing batch. Staggered replacements reduce exposure to latent manufacturing defects while leaving you with emergency spare drives that still have useful life remaining.
+
+___
+
+### NVMe SSD Wear & Replacement
+
+#### Recommendation
+
+**Periodic Review (Every 6–12 months)**
+- [ ] Review SMART health and wear indicators.
+- [ ] Verify that normal datastore utilization remains below **75–85%**.
+- [ ] Confirm that approximately **15% of the SSD remains unallocated** to provide additional over-provisioning.
+
+**Lifecycle Replacement (Typically Every 2–5 years)**
+
+- [ ] Plan to replace heavily-used NVMe drives before they reach the end of their expected service life.
+- [ ] Consider the drive's **age**, **SMART wear indicators**, **Total Bytes Written (TBW)** or endurance rating, workload history, and **remaining warranty** when determining replacement timing.
+
+
+#### Why
+
+Virtualization hosts generate significantly more write activity than a typical desktop system, accelerating SSD wear.
+
+Keeping datastore utilization below 75–85% and leaving approximately 15% of the SSD unallocated gives the controller additional space for wear leveling and garbage collection, helping maintain consistent performance while reducing write amplification.
+
+Replacing drives proactively—before they exceed their endurance rating or approach the end of their warranty—reduces the risk of unexpected failures and keeps storage performance predictable.
+
+___
+
+### CMOS Battery
+
+#### Recommendation
+
+**Frequency:** Every 2–3 years.
+
+- [ ] Measure the CMOS battery with a voltmeter during routine maintenance. 
+
+- Replace it:
+
+  - if the voltage measures **3.0 V or lower**, 
+  - if it is more than **5 years old**, or 
+  - if the system begins losing BIOS settings or the system clock after power loss.
+
+> **Note:** Many motherboards will retain their CMOS settings if AC power remains connected while the battery is replaced. This can avoid reconfiguring BIOS settings, but it also increases the risk of accidentally shorting the motherboard while handling the battery. Choose the approach that best matches your environment and risk tolerance.
+{: .prompt-warning }
+
+#### Why
+
+A weak CMOS battery can cause BIOS settings, boot order, and the system clock to reset after power loss, resulting in confusing failures that are inexpensive to prevent.
+
+___
+
+### Memory Testing
+
+#### Recommendation
+
+**Frequency:** Every 2–3 years, or if noticing random server issues.
+
+Run a full MemTest whenever unexplained crashes occur and periodically as systems age.
+
+#### Why
+
+ZFS depends heavily on system memory.
+
+Faulty RAM can silently corrupt data before it is ever written to disk. Memory errors are uncommon but become more likely as hardware ages.
+
+___
+
+#### Physical Inspection
+
+**Recommendation**
+
+Inspect the server at least once each year.
+
+- [ ] Remove accumulated dust.
+- [ ] Check temperatures.
+- [ ] Listen for failing fans.
+- [ ] Verify all fans are spinning normally.
+- [ ] Look for loose cables, corrosion, or heat damage.
+
+> Hold fan blades stationary while blowing out dust. Allowing compressed air to spin fans at excessive speed can permanently damage their bearings.
+{: .prompt-warning }
+
+#### Why
+
+Many hardware failures give subtle warning signs long before monitoring software detects a problem. A simple visual inspection often catches issues before they become outages.
+
+___
+
+### Lifecycle & Redundancy Planning
+
+#### Recommendation
+
+Whenever practical, replace equipment before it becomes critical and keep recently retired hardware as tested spares.
+
+Consider maintaining spare:
+
+- switches
+- storage drives
+- power supplies
+- network adapters
+- an additional Proxmox host for replication or emergency failover
+
+#### Why
+
+The best time to acquire replacement hardware is before you need it.
+
+Keeping known-good spare equipment dramatically reduces recovery time during an outage and allows hardware failures to become routine maintenance events instead of emergencies.
+
+___
 ___
 
 ## Troubleshooting
