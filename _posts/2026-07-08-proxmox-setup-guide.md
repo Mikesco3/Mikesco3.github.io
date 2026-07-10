@@ -14,7 +14,7 @@ description: A step-by-step Proxmox VE setup guide covering installation, storag
 pin: false
 
 ---
-# Proxmox Installation, Configuration, and Best Practices - v20260709
+## Proxmox Installation, Configuration, and Best Practices - v20260710
 
 > ### A Brief [Speedrun version](https://mikesco3.github.io/posts/proxmox-setup-guide-speedrun) of this article can be found here:
 >> https://mikesco3.github.io/posts/proxmox-setup-guide
@@ -666,15 +666,36 @@ Snapshots are only half of the strategy.
 
 I also replicate selected production virtual disks from the `fast200` pool into `rpool/_Shadows` using Syncoid. Rather than replicating every dataset automatically, I prefer to explicitly list the virtual disks that should be protected.
 
-For example:
+#### Create the Shadow VM:
 
-```sh
-#!/usr/bin/bash
+Once we have Production VMs we can setup replication to their Shadow Equivalents:
 
-/usr/local/sbin/syncoid --force-delete \
-    fast200/_VMs/vm-201-disk-0 \
-    rpool/_Shadows/vm-1201-disk-0
+> _In this example we will replicate **`VM 201`** to a **`Shadow VM 1201`**_
+
+- [ ] Copy the VM Config file in `/etc/pve/qemu-server/` from `201.conf` to `1201.conf` 
+- [ ] Change the Shadow VM drive entries:
+- In `/etc/pve/qemu-server/1201.conf`
+
+_**Example:**_
+> **from:** **`fast200`** `vm 201`
+
+```TOML
+efidisk0: fast200_VMs-zfs:vm-201-disk-0,efitype=4m,pre-enrolled-keys=1,size=1M
+tpmstate0: fast200_VMs-zfs:vm-201-disk-1,size=4M,version=v2.0
+virtio0: fast200_VMs-zfs:vm-201-disk-2,discard=on,iothread=1,size=150G
 ```
+
+> **To:** **`_Shadow`** `vm 1201`.
+
+```TOML
+efidisk0: rpool_Shadows-zfs:vm-1201-disk-0,efitype=4m,pre-enrolled-keys=1,size=1M
+tpmstate0: rpool_Shadows-zfs:vm-1201-disk-1,size=4M,version=v2.0
+virtio0: rpool_Shadows-zfs:vm-1201-disk-2,discard=on,iothread=1,size=150G
+```
+- [ ] **Disable the network interfaces** of the Shadow VM 1201:
+
+
+#### Schedule The Script
 
 I then schedule this script from `crontab`:
 
