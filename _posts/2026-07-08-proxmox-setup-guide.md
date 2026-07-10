@@ -1,11 +1,11 @@
 ---
 
-title: Proxmox VE Setup Guide
+title: Proxmox VE Setup Guide - Detailed Explanation
 layout: post
 author: mikesco3
 name: nycdh-jekyll
 link: https://github.com/Mikesco3
-date: 2026-07-08 04:30:00 -0500
+date: 2026-07-09 01:00:00 -0500
 categories: [Technology, Tutorial, Virtualization, Blogging]
 tags: [proxmox, proxmox-ve, linux, virtualization, zfs, homelab, server, self-hosting, guide, tutorial]
 excerpt: A practical guide for setting up Proxmox VE with recommended configurations, storage setup, networking, maintenance, and troubleshooting tips.
@@ -14,8 +14,11 @@ description: A step-by-step Proxmox VE setup guide covering installation, storag
 pin: false
 
 ---
-# Proxmox Installation, Configuration, and Best Practices - v20260707
+# Proxmox Installation, Configuration, and Best Practices - v20260709
 
+> ### A Brief [Speedrun version](https://mikesco3.github.io/posts/proxmox-setup-guide-speedrun) of this article can be found here:
+>> https://mikesco3.github.io/posts/proxmox-setup-guide
+{: .prompt-tip }
 ___
 ___
 
