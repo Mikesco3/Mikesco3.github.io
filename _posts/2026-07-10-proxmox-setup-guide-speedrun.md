@@ -10,7 +10,7 @@ categories: [Technology, Tutorial, Virtualization, Blogging]
 tags: [proxmox, proxmox-ve, linux, virtualization, zfs, homelab, server, self-hosting, guide, tutorial]
 excerpt: A brief version of the guide for setting up Proxmox VE.
 keywords: proxmox, proxmox ve, virtualization, zfs, linux server, homelab, self-hosting, virtual machines, containers
-description: A 15-Minute Proxmox Speedrun that assumes the reader already understands the concepts from the Detailed Proxmox VE setup guide.
+description: A Proxmox Installation Speedrun that assumes the reader already understands the concepts from the Detailed Proxmox VE setup guide.
 pin: false
 
 ---
@@ -21,7 +21,7 @@ pin: false
 {: .prompt-tip }
 
 #### In this setup
-We will try to Setup Proxmox VE wth the following model
+We will set up Proxmox VE using the following layout:
 
 ![Hardware](/assets/img/images/Pasted_Image_20251018151700.png)
 
@@ -74,13 +74,18 @@ ___
 ## 4. Install Basic Tools
 
 ```sh
-apt update && \
+apt update && apt upgrade -y && \
 apt install -y libcapture-tiny-perl libconfig-inifiles-perl pv lzop mbuffer net-tools sudo mc unzip screen iftop lshw sshfs make nfs-kernel-server sysstat smartmontools ethtool pv htop ntfs-3g git samba rpcbind libsasl2-modules neofetch ncdu vim tmux iperf3 archivemount fio kpartx tldr speedtest-cli
 ```
 > **Note:** Adjust for your package preference or fix any missing packages
 {: .prompt-info }
+
+- [ ] Reboot
+
 ___
 ___
+
+
 ## 5. Create ZFS Datasets
 
 Create separate datasets for `_Backup`, `_Shadows`, and `_VMs`.
@@ -95,14 +100,26 @@ ln -s /rpool/_Shadows/ /_Shadows
 zfs create -o atime=off -o compression=zstd -o casesensitivity=mixed rpool/_VMs
 ```
 ___
+
+#### Verify Everything
+```sh
+zpool status
+zfs list
+lsblk
+pvesm status
+
+```
 ___
+___
+
 ## 6. Create NVMe Pool
 - [ ] Install the NVMe Drive.
-
-### Locate the NVMe drive
+- [ ] Locate the NVMe drive
 ```sh
 lsblk -o name,model,serial
 ```
+
+___
 
 ### Partition the NVMe Drive
 
@@ -132,13 +149,38 @@ You can list disks and their IDs with:
 ls -l /dev/disk/by-id/ |grep nvme0n1 |grep part1
 ```
 
+___
+
 ### Create the pool
+> **Danger:** Creating a ZFS pool destroys all data on the selected device. Double-check the device identifier before pressing Enter.
+{: .prompt-danger }
 
 ```sh
 zpool create fast200 \
   -o ashift=12       \
   -o autotrim=on     \
   nvme-2TB-Samsung_SSD_EVO_2TB_SN0001234-part1
+```
+#### Create the `fast200/_VMs` Dataset
+
+```sh
+zpool upgrade fast200
+zfs set compression=zstd fast200
+
+zfs create                 \
+  -o atime=off             \
+  -o compression=zstd      \
+  -o casesensitivity=mixed \
+  fast200/_VMs
+```
+___
+
+### Schedule ZFS Scrubs
+
+Run `crontab -e` as `root` and add:
+```cron
+0 06 * * SUN /usr/sbin/zpool scrub fast200
+2 06 * * SUN /usr/sbin/zpool scrub rpool
 ```
 ___
 ___
@@ -156,7 +198,8 @@ ___
 ___
 ## 8. Create an Admin User
 
-### Create the Linux User:
+- [ ] Create the Linux User:
+
 > _In our example, called: **`johndoe`**_
 
 ```sh
@@ -168,13 +211,13 @@ sudo useradd -m \
 sudo passwd johndoe
 ```
 
-### Create the same user for Samba access:
+- [ ] Create the same user for Samba access:
 
 ```sh
 smbpasswd -a johndoe
 ```
 
-### Add User to Proxmox
+- [ ] Add User to Proxmox
 
 1. In the **Proxmox Web Interface**, create a group (for example, `masters`):  
    **Datacenter → Permissions → Groups → Create**
@@ -196,6 +239,8 @@ ___
 ```sh
 cp /etc/samba/smb.conf /etc/samba/smb.conf_orig
 ```
+___
+
 ### Edit the Main Configuration
 
 - [ ] Open `/etc/samba/smb.conf`, and edit the following lines:
@@ -211,6 +256,8 @@ directory mask = 0775
 # At the end of the file, include the custom shares file:
 include = /etc/samba/shares.conf
 ```
+
+___
 
 ### Add the Shares
 - [ ] Create `/etc/samba/shares.conf` and add the Shares:
@@ -232,6 +279,8 @@ Example:
    case sensitive = no     
 ```
 
+___
+
 ### Set the Permissions
 
 ```sh
@@ -240,6 +289,9 @@ chown :sambashare --recursive /rpool/_Backup
 chmod g+rwx --recursive /rpool/_Backup
 
 ```
+
+___
+
 ### Final Check and Start the Service
 
 Before starting Samba, verify that the configuration is valid:
@@ -280,6 +332,7 @@ apt install -y sanoid
 systemctl enable --now sanoid sanoid-prune 
 systemctl status sanoid sanoid-prune sanoid.timer 
 ```
+___
 
 ### [DriveStatus](https://github.com/Mikesco3/drivestatus.sh)
 `drivestatus` is a small utility for identifying disks.
@@ -295,6 +348,8 @@ sudo wget -O /usr/bin/drivestatus \
 sudo chmod +x /usr/bin/drivestatus
 ```
 
+___
+
 ### [ZeroTier](https://www.zerotier.com/)
 
 ```sh
@@ -308,6 +363,8 @@ ___
 Once we have Production VMs we can setup replication to their Shadow Equivalents:
 
 > _In this example we will replicate **`VM 201`** to a **`Shadow VM 1201`**_
+
+___
 
 ### Create the Shadow VM:
 
@@ -333,6 +390,8 @@ virtio0: rpool_Shadows-zfs:vm-1201-disk-2,discard=on,iothread=1,size=150G
 ```
 - [ ] **Disable the network interfaces** of the Shadow VM 1201:
 
+___
+
 ### Create the Replication Script
 In our example we're creating the script in `/root/replicateVMs-to-Shadows.sh`
 
@@ -346,6 +405,8 @@ In our example we're creating the script in `/root/replicateVMs-to-Shadows.sh`
 
 ```
 
+___
+
 ### Schedule the Script
 Schedule this script from `crontab -e`:
 
@@ -353,21 +414,21 @@ Schedule this script from `crontab -e`:
 5 8-18/2 * * * /root/replicateVMs-to-Shadows.sh >/dev/null 2>&1
 ```
 
-## 12. Maintenance
+## 12. Maintenance & Lifecycle Planning
 
-- [ ] Schedule ZFS Scrubs
-Run `crontab -e` as `root` and add:
-```cron
-0 06 * * SUN /usr/sbin/zpool scrub fast200
-2 06 * * SUN /usr/sbin/zpool scrub rpool
-```
-
-- [ ] Setup Monitoring and Alerts
-- [ ] Verify Replication
+- [ ] Enable Sanoid
+- [ ] Configure replication
+- [ ] Schedule scrubs
+- [ ] Configure monitoring & Alerts
+- [ ] Verify Replicatoin and Restores
 - [ ] Keep Proxmox Updated
-- [ ] Bakcup Strategy
-- [ ] Schedule Lifecylce & Redudancy Planning
+___
+
+- [ ] Backup Strategy
+- [ ] Schedule Lifecycle & Redundancy Planning
 - [ ] Disaster Recovery Drills
+
+___
 
 ### Schedule Replacements:
 - [ ] NVMe Wear Level
@@ -377,16 +438,8 @@ Run `crontab -e` as `root` and add:
 ___
 ___
 
-## Troubleshooting 
-Check the [Detailed Article](https://mikesco3.github.io/posts/proxmox-setup-guide/#troubleshooting) for Troubleshooting
-
+If you run into installer issues, network problems, USB/KVM quirks, or hardware compatibility issues, refer to the Troubleshooting section of the [full guide](https://mikesco3.github.io/posts/proxmox-setup-guide/#troubleshooting)
 [Link:](https://mikesco3.github.io/posts/proxmox-setup-guide/#troubleshooting)
-> https://mikesco3.github.io/posts/proxmox-setup-guide/#troubleshooting 
 
 ___
 ___
-
-
-Contact me in [LinkedIn](https://www.linkedin.com/in/mikesco3/) or by email with questions or suggestions.
-
-- LinkedIn: [https://www.linkedin.com/in/mikesco3/](https://www.linkedin.com/in/mikesco3/)
