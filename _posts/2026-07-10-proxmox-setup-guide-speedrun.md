@@ -160,13 +160,14 @@ zpool create fast200 \
   -o ashift=12       \
   -o autotrim=on     \
   nvme-2TB-Samsung_SSD_EVO_2TB_SN0001234-part1
+
+zpool upgrade fast200
+zfs set compression=zstd fast200
+
 ```
 #### Create the `fast200/_VMs` Dataset
 
 ```sh
-zpool upgrade fast200
-zfs set compression=zstd fast200
-
 zfs create                 \
   -o atime=off             \
   -o compression=zstd      \
@@ -196,9 +197,10 @@ ___
 
 ___
 ___
+
 ## 8. Create an Admin User
 
-- [ ] Create the Linux User:
+### Create the User in Linux User:
 
 > _In our example, called: **`johndoe`**_
 
@@ -216,8 +218,9 @@ sudo passwd johndoe
 ```sh
 smbpasswd -a johndoe
 ```
+___
 
-- [ ] Add User to Proxmox
+### Add the User to Proxmox
 
 1. In the **Proxmox Web Interface**, create a group (for example, `masters`):  
    **Datacenter → Permissions → Groups → Create**
