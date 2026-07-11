@@ -1238,8 +1238,6 @@ The goal of this guide wasn't to cover every Proxmox feature or every possible d
 
 Like most infrastructure, this setup continues to evolve. As I learn better approaches or discover useful tools, I'll update this guide to reflect those improvements rather than treating it as a static snapshot in time.
 
-I also plan to publish a companion article that distills this guide into a concise installation checklist with the essential commands and configuration steps. The intent is to provide a quick reference for experienced administrators while leaving this article focused on explaining not only how the system is built, but why each design decision was made.
-
 If you've built a similar Proxmox environment or have ideas that could improve this guide, I'd love to hear about them. One of the strengths of open-source software is that we all benefit by sharing what we've learned.
 
 Contact me in [LinkedIn](https://www.linkedin.com/in/mikesco3/) or by email with questions or suggestions.

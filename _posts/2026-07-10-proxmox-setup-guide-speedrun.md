@@ -25,6 +25,12 @@ We will set up Proxmox VE using the following layout:
 
 ![Hardware](/assets/img/images/Pasted_Image_20251018151700.png)
 
+- The **main ZFS pool (`rpool`)** is mirrored across two hard drives. It hosts the Proxmox operating system itself, along with datasets for backups and replicated “shadow” copies of our production VMs.  
+- A **second pool (`fast200`)** lives on a dedicated NVMe drive and runs the live production VMs and containers. This is the high-performance tier that benefits from fast I/O and low latency.  
+- Additional NVMe drives can be introduced later, each forming its own independent pool (for example `fast300`, `fast400`, and so on), following the same structure and replication process when more capacity or isolation is needed.  
+- Replication tasks (using **`syncoid`**) keep the production `fast200` pool synchronized to the larger, more resilient `rpool`, giving us a recoverable copy in case the NVMe drive fails.  
+
+
 > These commands are meant to be read, understood, and adapted (not just copy-pasted). Think of this as a recipe that keeps improving over time, and feel free to refine it for your own setup or share any insights back.
 {: .prompt-warning }
 
