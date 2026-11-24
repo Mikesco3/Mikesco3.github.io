@@ -178,7 +178,7 @@ ___
 At this point, we should be fully booted into the new Proxmox installation.  
 If the system doesn’t start correctly after rebooting, check the **Troubleshooting** section below before continuing.  
 
-Run the [Proxmox Helper Scripts](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install):  
+Run the [Proxmox Helper Scripts](https://community-scripts.org/scripts/post-pve-install):  
 
 > As a general rule: always review any script from the internet before running it — and apply this rule to every script we `curl` into `bash` or `git clone` into our system throughout this guide.
 {: .prompt-info }

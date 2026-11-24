@@ -64,9 +64,9 @@ ___
 ___
 
 ## 3. Helper Script
-- [ ] Run the [PVE Post-Install Script](https://community-scripts.org/scripts/post-pve-install?id=post-pve-install)
+- [ ] Run the [PVE Post-Install Script](https://community-scripts.org/scripts/post-pve-install)
 ```sh
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
 ```
 - disable enterprise repo, 
 - enables no-sub repo, 
