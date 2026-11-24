@@ -81,7 +81,7 @@ ___
 
 ```sh
 apt update && apt upgrade -y && \
-apt install -y libcapture-tiny-perl libconfig-inifiles-perl pv lzop mbuffer net-tools sudo mc unzip screen iftop lshw sshfs make nfs-kernel-server sysstat smartmontools ethtool pv htop ntfs-3g git samba rpcbind libsasl2-modules neofetch ncdu vim tmux iperf3 archivemount fio kpartx tldr speedtest-cli
+apt install -y libcapture-tiny-perl libconfig-inifiles-perl pv lzop mbuffer net-tools sudo mc unzip screen iftop lshw sshfs make nfs-kernel-server sysstat smartmontools ethtool pv htop ntfs-3g git samba rpcbind libsasl2-modules fastfetch ncdu vim tmux iperf3 archivemount fio kpartx tealdeer speedtest-cli
 ```
 > **Note:** Adjust for your package preference or fix any missing packages
 {: .prompt-info }

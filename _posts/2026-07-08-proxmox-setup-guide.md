@@ -204,7 +204,7 @@ These packages are mostly general purpose utilities that cover everyday Linux ta
 
 ```sh 
 apt update && apt upgrade -y && \
-apt install -y archivemount ethtool fastfetch fio git htop iftop iperf3 kpartx libcapture-tiny-perl libconfig-inifiles-perl libsasl2-modules lshw lzop make mbuffer mc ncdu net-tools nfs-kernel-server ntfs-3g pv pv rpcbind samba screen smartmontools speedtest-cli sshfs sudo sysstat tldr-py tmux unzip vim 
+apt install -y archivemount ethtool fastfetch fio git htop iftop iperf3 kpartx libcapture-tiny-perl libconfig-inifiles-perl libsasl2-modules lshw lzop make mbuffer mc ncdu net-tools nfs-kernel-server ntfs-3g pv pv rpcbind samba screen smartmontools speedtest-cli sshfs sudo sysstat tealdeer tmux unzip vim 
 ```
 
 Then Reboot 
